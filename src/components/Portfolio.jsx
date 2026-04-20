@@ -10,7 +10,7 @@ const projects = [
     category: 'Web Dev',
     description:
       'A responsive e-commerce homepage built using HTML and CSS, replicating the layout and feel of Amazon.',
-    image: 'images/amazon.webp',
+    image: '/images/amazon.webp',
     link: 'https://amazon-clone-wine-iota.vercel.app/',
     tags: ['HTML', 'CSS'],
   },
@@ -20,7 +20,7 @@ const projects = [
     category: 'Web Dev',
     description:
       "A stylish landing page built with HTML, CSS, and Bootstrap simulating Netflix's homepage design.",
-    image: 'images/netflix.jpg',
+    image: '/images/netflix.jpg',
     link: 'https://netflix-clone-jgpn.vercel.app/',
     tags: ['HTML', 'CSS', 'Bootstrap'],
   },
@@ -30,7 +30,7 @@ const projects = [
     category: 'JavaScript',
     description:
       'An interactive memory game built using HTML, CSS, and JavaScript inspired by the classic Simon game.',
-    image: 'images/simonsays.jpg',
+    image: '/images/simonsays.jpg',
     link: 'https://simonsays-game-js.vercel.app/',
     tags: ['HTML', 'CSS', 'JavaScript'],
   },
@@ -40,7 +40,7 @@ const projects = [
     category: 'Web Dev',
     description:
       "A writer's hub for shayaris, poetries and more — built collaboratively with a classmate.",
-    image: 'images/mehfil.jpg',
+    image: '/images/mehfil.jpg',
     link: 'https://mehfil-e-dard.vercel.app',
     tags: ['HTML', 'CSS', 'JS'],
   },
