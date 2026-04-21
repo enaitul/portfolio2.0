@@ -44,6 +44,19 @@ const projects = [
     link: 'https://mehfil-e-dard.vercel.app',
     tags: ['HTML', 'CSS', 'JS'],
   },
+
+  {
+    id: 5,
+    title: 'Logwatch AI',
+    category: 'Full Stack',
+    description: `AI-powered platform for real-time system reliability and safe deployments.
+It combines intelligent traffic routing, RAG-based log analysis, and autonomous AI agents
+to detect failures and trigger instant rollback or recovery actions, enabling self-healing
+and resilient systems. 2X Hackathon Winner.`,
+    image: '/images/logwatch.png',
+    link: 'https://logwatchai.vercel.app',
+    tags: ['React', 'Pinecone', 'Node.js', 'Hugging Face', 'Groq', 'MongoDB', '3js'],
+  },
 ]
 
 const cardVariants = {

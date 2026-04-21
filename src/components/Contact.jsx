@@ -12,7 +12,7 @@ const socials = [
 ]
 
 const SCRIPT_URL =
-  'https://script.google.com/macros/s/AKfycbzogCAUdccz0JW7Qty_-eUqVF-krrgOq3OtCW04jhlOsB9g8Ai_b7U1mZa05muZ4U-c/exec'
+  'https://script.google.com/macros/s/AKfycbzmA4q3nRXBAU2LI-3wYslz1Fg2Jh2HCQuFZTdy9ZUZQ5XpF-jLAraIvIvKdJNBLyEK5g/exec'
 
 export default function Contact() {
   const [form, setForm] = useState({ Name: '', Email: '', Message: '' })
@@ -21,21 +21,27 @@ export default function Contact() {
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     setLoading(true)
-    try {
-      const formData = new FormData()
-      Object.entries(form).forEach(([k, v]) => formData.append(k, v))
-      await fetch(SCRIPT_URL, { method: 'POST', body: formData })
-      setStatus('Message sent successfully!')
-      setForm({ Name: '', Email: '', Message: '' })
-    } catch {
-      setStatus('Something went wrong. Please try again.')
-    } finally {
-      setLoading(false)
-      setTimeout(() => setStatus(''), 4000)
-    }
+
+    const formData = new FormData()
+    Object.entries(form).forEach(([k, v]) => formData.append(k, v))
+
+    fetch(SCRIPT_URL, { method: 'POST', body: formData })
+      .then((response) => response.json())
+      .then(() => {
+        setStatus('Message sent successfully!')
+        setForm({ Name: '', Email: '', Message: '' })
+        setLoading(false)
+        setTimeout(() => setStatus(''), 4000)
+      })
+      .catch((error) => {
+        console.error('Error!', error.message)
+        setStatus('Something went wrong. Please try again.')
+        setLoading(false)
+        setTimeout(() => setStatus(''), 4000)
+      })
   }
 
   return (
