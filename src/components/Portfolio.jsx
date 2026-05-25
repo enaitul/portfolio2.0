@@ -57,6 +57,17 @@ and resilient systems. 2X Hackathon Winner.`,
     link: 'https://logwatchai.vercel.app',
     tags: ['React', 'Pinecone', 'Node.js', 'Hugging Face', 'Groq', 'MongoDB', '3js'],
   },
+
+   {
+    id: 6,
+    title: 'EnaitGPT',
+    category: 'Web Dev',
+   description:
+  "Imagined what it would be like to talk to a AI version of myself — built with Gemini, Groq, and OpenRouter APIs.",
+image: '/images/Enaitgpt.jpeg',
+link: 'https://enaitgpt.vercel.app',
+tags: ['React', 'TypeScript', 'Tailwind'],
+  },
 ]
 
 const cardVariants = {
