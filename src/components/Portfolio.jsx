@@ -242,9 +242,11 @@ export default function Portfolio() {
   useEffect(() => {
     updateArrowVisibility()
     const frame = window.requestAnimationFrame(updateArrowVisibility)
+    const timer = setTimeout(updateArrowVisibility, 200)
     window.addEventListener('resize', updateArrowVisibility)
     return () => {
       window.cancelAnimationFrame(frame)
+      clearTimeout(timer)
       window.removeEventListener('resize', updateArrowVisibility)
     }
   }, [filteredProjects])
@@ -294,7 +296,43 @@ export default function Portfolio() {
             </AnimatePresence>
           </div>
         </div>
-        <p className="mt-4 text-xs text-white/35">Scroll to explore projects</p>
+        <div className="mt-4 flex items-center gap-2.5 text-xs text-white/45 select-none">
+          {canScrollLeft && (
+            <button
+              type="button"
+              onClick={() => moveCarousel(-1)}
+              aria-label="Swipe left for previous projects"
+              className="flex items-center text-gold hover:text-white transition-colors cursor-pointer"
+            >
+              <motion.span
+                animate={{ x: [-1, -5, -1], opacity: [0.35, 1, 0.35] }}
+                transition={{ duration: 1.3, repeat: Infinity, ease: 'easeInOut' }}
+                className="inline-flex items-center"
+              >
+                <FiArrowLeft size={13} />
+              </motion.span>
+            </button>
+          )}
+
+          <span className="tracking-wide">Swipe to explore</span>
+
+          {canScrollRight && (
+            <button
+              type="button"
+              onClick={() => moveCarousel(1)}
+              aria-label="Swipe right for more projects"
+              className="flex items-center text-gold hover:text-white transition-colors cursor-pointer"
+            >
+              <motion.span
+                animate={{ x: [1, 5, 1], opacity: [0.35, 1, 0.35] }}
+                transition={{ duration: 1.3, repeat: Infinity, ease: 'easeInOut' }}
+                className="inline-flex items-center"
+              >
+                <FiArrowRight size={13} />
+              </motion.span>
+            </button>
+          )}
+        </div>
       </div>
     </section>
   )
