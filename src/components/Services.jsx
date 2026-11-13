@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FiGlobe, FiCode, FiTerminal, FiUsers } from 'react-icons/fi'
+import { FiGlobe, FiCode, FiUsers } from 'react-icons/fi'
 import SectionHeading from './SectionHeading'
 
 const services = [
@@ -25,20 +25,10 @@ const services = [
     icon: FiCode,
     title: 'Problem Solving',
     description:
-      '200+ DSA problems solved across LeetCode, CodeStudio & GFG. Strong algorithmic thinking with C++ and Java for efficient, optimized solutions.',
+      'Strong algorithmic thinking with C++ and Java, grounded in regular practice across competitive programming platforms.',
     link: 'https://codolio.com/profile/enaitulhoque',
     linkLabel: 'Codolio Profile',
     accent: 'from-blue-400/20 to-transparent',
-    external: true,
-  },
-  {
-    icon: FiTerminal,
-    title: 'Python Scripting',
-    description:
-      'Automation and scripting tasks using Python to boost productivity and streamline workflows. Clean, maintainable scripts.',
-    link: 'https://github.com/enaitul',
-    linkLabel: 'GitHub',
-    accent: 'from-green-400/20 to-transparent',
     external: true,
   },
 ]
@@ -55,11 +45,11 @@ const cardVariants = {
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 md:py-28 relative">
+    <section id="services" className="py-14 md:py-20 relative">
       <div className="absolute right-0 top-20 w-80 h-80 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="section-padding">
-        <SectionHeading number="02" subtitle="What I Do" title="My Services" />
+        <SectionHeading title="My Services" intro="Practical development skills to take ideas from concept to deployment." />
 
         {/* ✅ MOBILE FIX: 1 col on mobile, 3 cols on md+ */}
         <motion.div
@@ -67,9 +57,9 @@ export default function Services() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {services.map((service, i) => (
+          {services.map((service) => (
             <motion.div
               key={service.title}
               variants={cardVariants}
@@ -95,16 +85,13 @@ export default function Services() {
                   href={service.link}
                   target={service.external ? '_blank' : undefined}
                   rel={service.external ? 'noopener noreferrer' : undefined}
-                  className="inline-flex items-center gap-1 font-display font-semibold text-sm text-gold/70 hover:text-gold transition-colors duration-300"
+                  className="inline-flex items-center gap-1 font-sans font-semibold text-sm text-gold/70 hover:text-gold transition-colors duration-300"
                 >
                   {service.linkLabel}
                   <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
                 </a>
               </div>
 
-              <span className="absolute bottom-4 right-6 font-display font-black text-6xl text-white/[0.03] select-none">
-                0{i + 1}
-              </span>
             </motion.div>
           ))}
         </motion.div>

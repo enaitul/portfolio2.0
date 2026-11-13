@@ -85,7 +85,7 @@ export default function Navbar() {
               animate="visible"
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.95 }}
-              className="font-nav font-bold text-2xl tracking-tight inline-block"
+              className="font-sans font-bold text-2xl tracking-tight inline-block"
             >
               <span className="text-white">Enait</span>
               <motion.span
@@ -132,7 +132,7 @@ export default function Navbar() {
                   onClick={() => setActive(link.label)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.97 }}
-                  className={`relative inline-flex items-center justify-center font-nav font-semibold text-base px-4 py-2 rounded-xl transition-colors duration-300 hover:bg-white/[0.04] ${
+                  className={`relative inline-flex items-center justify-center font-sans font-semibold text-base px-4 py-2 rounded-xl transition-colors duration-300 hover:bg-white/[0.04] ${
                     active === link.label
                       ? 'text-gold'
                       : 'text-white/60 hover:text-white'
@@ -164,7 +164,7 @@ export default function Navbar() {
               animate="visible"
               whileHover={{ scale: 1.06, boxShadow: '0 0 20px rgba(255, 204, 0, 0.3)' }}
               whileTap={{ scale: 0.95 }}
-              className="hidden md:flex items-center gap-2 bg-gold text-dark font-nav font-bold text-sm px-5 py-2.5 rounded-full transition-all duration-300 hover:bg-gold-dark"
+              className="hidden md:flex items-center gap-2 bg-gold text-dark font-sans font-bold text-sm px-5 py-2.5 rounded-full transition-all duration-300 hover:bg-gold-dark"
             >
               <FiGithub size={16} />
               GitHub
@@ -216,7 +216,7 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 transition={{ delay: 0.15 + i * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 onClick={() => { setActive(link.label); setIsOpen(false) }}
-                className={`font-nav font-bold text-4xl sm:text-5xl transition-colors py-1 ${
+                className={`font-sans font-bold text-4xl sm:text-5xl transition-colors py-1 ${
                   active === link.label ? 'text-gold' : 'text-white/70 hover:text-gold'
                 }`}
               >
@@ -232,7 +232,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               transition={{ delay: 0.15 + navLinks.length * 0.08, duration: 0.5 }}
               whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(255, 204, 0, 0.3)' }}
-              className="flex items-center gap-2.5 border-2 border-gold text-gold font-nav font-bold text-lg px-7 py-3.5 rounded-full mt-4"
+              className="flex items-center gap-2.5 border-2 border-gold text-gold font-sans font-bold text-lg px-7 py-3.5 rounded-full mt-4"
             >
               <FiGithub size={20} />
               GitHub

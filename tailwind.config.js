@@ -15,10 +15,11 @@ export default {
         'card': '#161616',
       },
       fontFamily: {
-        display: ['"Syne"', 'sans-serif'],
-        body: ['"Inter"', 'sans-serif'],
-        nav: ['"Space Grotesk"', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'monospace'],
+        sans: ['"Inter"', 'Arial', 'sans-serif'],
+        display: ['Arial', '"Inter"', 'sans-serif'],
+        body: ['"Inter"', 'Arial', 'sans-serif'],
+        nav: ['"Inter"', 'Arial', 'sans-serif'],
+        mono: ['"Inter"', 'Arial', 'sans-serif'],
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

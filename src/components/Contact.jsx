@@ -45,14 +45,14 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 md:py-28 relative overflow-hidden">
+    <section id="contact" className="py-14 md:py-20 relative overflow-hidden">
       <div className="absolute -right-20 bottom-0 w-96 h-96 bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="section-padding">
-        <SectionHeading number="04" subtitle="Get In Touch" title="Contact Me" />
+        <SectionHeading title="Contact Me" intro="Open to conversations about software projects and opportunities." />
 
         {/* ✅ MOBILE FIX: single column on mobile, 2 cols on lg */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -109,6 +109,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.15 }}
+            className="rounded-2xl border border-white/10 bg-card p-5 sm:p-7"
           >
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* ✅ MOBILE FIX: stack name/email on xs, side-by-side on sm+ */}
