@@ -31,7 +31,7 @@ const projects = [
     id: 'enaitgpt', name: 'EnaitGPT',
     description: 'A conversational AI experience built around Gemini, Groq, and OpenRouter APIs.',
     technologies: ['React', 'TypeScript', 'Tailwind'], categories: ['Frontend', 'APIs'],
-    image: '/images/Enaitgpt.jpeg', liveUrl: 'https://enaitgpt.vercel.app', privateRepository: true,
+    image: '/images/Enaitgpt.jpeg', liveUrl: 'https://enait-gpt-app.onrender.com/', privateRepository: true,
   },
   {
     id: 'mehfil-e-dard', name: 'Mehfil-e-Dard',
