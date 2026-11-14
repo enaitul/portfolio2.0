@@ -16,10 +16,11 @@ export default {
       },
       fontFamily: {
         sans: ['"Inter"', 'Arial', 'sans-serif'],
-        display: ['Arial', '"Inter"', 'sans-serif'],
+        display: ['"Bebas Neue"', 'Arial', 'sans-serif'],
         body: ['"Inter"', 'Arial', 'sans-serif'],
         nav: ['"Inter"', 'Arial', 'sans-serif'],
         mono: ['"Inter"', 'Arial', 'sans-serif'],
+        rank: ['"Bebas Neue"', 'Impact', 'Arial', 'sans-serif'],
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

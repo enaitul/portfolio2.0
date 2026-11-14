@@ -10,6 +10,52 @@ const achievements = [
   { value: '5+', label: 'Projects Built' },
 ]
 
+const statsContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.04,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      staggerChildren: 0.04,
+      staggerDirection: -1,
+    },
+  },
+}
+
+const statItemVariants = {
+  hidden: {
+    opacity: 0,
+    y: -24,
+    scale: 0.88,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 420,
+      damping: 22,
+      mass: 0.7,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -14,
+    scale: 0.9,
+    transition: {
+      duration: 0.16,
+      ease: 'easeIn',
+    },
+  },
+}
+
 const tabs = [
   {
     id: 'skills', label: 'Skills', content: [
@@ -73,26 +119,45 @@ export default function About() {
               onBlur={(event) => {
                 if (!event.currentTarget.parentElement?.contains(event.relatedTarget)) setExpanded(false)
               }}
-              animate={{ y: expanded && !reduceMotion ? -5 : 0 }}
-              transition={{ duration: reduceMotion ? 0 : 0.35, ease: 'easeOut' }}
-              className="block w-full rounded-2xl overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+              animate={{
+                y: expanded && !reduceMotion ? -6 : 0,
+                scale: expanded && !reduceMotion ? 1.015 : 1,
+              }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="group/photo relative block w-full rounded-2xl overflow-hidden border border-white/10 transition-all duration-500 hover:border-gold/40 hover:shadow-[0_12px_40px_rgba(255,204,0,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold cursor-pointer"
             >
-              <img src={userPhoto} alt="Md Enaitul Hoque" className="block aspect-[4/5] w-full object-cover object-[70%_center]" />
+              <img
+                src={userPhoto}
+                alt="Md Enaitul Hoque"
+                className={`block aspect-[4/5] w-full object-cover object-[70%_center] transition-transform duration-700 ease-out ${
+                  expanded ? 'scale-105' : 'scale-100'
+                }`}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent opacity-60 group-hover/photo:opacity-20 transition-opacity duration-300 pointer-events-none" />
             </motion.button>
-            <AnimatePresence initial={false}>
+
+            <AnimatePresence>
               {expanded && (
                 <motion.div
-                  initial={{ opacity: 0, y: reduceMotion ? 0 : -8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: reduceMotion ? 0 : -6 }}
-                  transition={{ duration: reduceMotion ? 0 : 0.24 }}
+                  variants={statsContainerVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
                   className="mt-4 grid grid-cols-4 gap-2 sm:gap-3"
                 >
                   {achievements.map((item) => (
-                    <div key={item.label} className="min-w-0 rounded-xl border border-white/10 bg-card px-1.5 py-3 text-center sm:px-2 sm:py-4">
-                      <span className="block font-sans font-semibold text-gold text-base sm:text-xl">{item.value}</span>
-                      <span className="block mt-1 font-sans text-white/55 text-[9px] leading-tight sm:text-[11px]">{item.label}</span>
-                    </div>
+                    <motion.div
+                      key={item.label}
+                      variants={statItemVariants}
+                      className="relative min-w-0 rounded-xl border border-white/10 bg-card/90 backdrop-blur-md px-1.5 py-3 text-center sm:px-2 sm:py-4 shadow-lg shadow-black/30 transition-all duration-200 hover:border-gold/40 hover:-translate-y-1"
+                    >
+                      <span className="block font-sans font-bold text-gold text-base sm:text-xl drop-shadow-[0_2px_8px_rgba(255,204,0,0.25)]">
+                        {item.value}
+                      </span>
+                      <span className="block mt-1 font-sans text-white/60 text-[9px] leading-tight sm:text-[11px] font-medium">
+                        {item.label}
+                      </span>
+                    </motion.div>
                   ))}
                 </motion.div>
               )}

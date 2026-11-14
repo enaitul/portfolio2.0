@@ -187,21 +187,22 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, clipPath: 'circle(0% at calc(100% - 2rem) 2rem)' }}
-            animate={{ opacity: 1, clipPath: 'circle(150% at calc(100% - 2rem) 2rem)' }}
-            exit={{ opacity: 0, clipPath: 'circle(0% at calc(100% - 2rem) 2rem)' }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 bg-dark/98 backdrop-blur-3xl flex flex-col items-center justify-center gap-5 md:hidden"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            style={{ willChange: 'transform, opacity' }}
+            className="fixed inset-0 z-40 bg-dark/98 backdrop-blur-md flex flex-col items-center justify-center gap-5 md:hidden"
           >
             {/* Decorative glow */}
-            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-64 h-64 bg-gold/10 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-64 h-64 bg-gold/10 rounded-full blur-[80px] pointer-events-none" />
 
             <motion.button
               onClick={() => setIsOpen(false)}
               aria-label="Close menu"
               initial={{ opacity: 0, rotate: -90 }}
               animate={{ opacity: 1, rotate: 0 }}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: 0.1 }}
               whileHover={{ scale: 1.1, rotate: 90 }}
               className="absolute top-5 right-6 text-white/60 hover:text-gold p-2 transition-colors"
             >
@@ -212,9 +213,9 @@ export default function Navbar() {
               <motion.a
                 key={link.label}
                 href={link.href}
-                initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                transition={{ delay: 0.15 + i * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.08 + i * 0.04, duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => { setActive(link.label); setIsOpen(false) }}
                 className={`font-sans font-bold text-4xl sm:text-5xl transition-colors py-1 ${
                   active === link.label ? 'text-gold' : 'text-white/70 hover:text-gold'
@@ -228,9 +229,9 @@ export default function Navbar() {
               href="https://github.com/enaitul"
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              transition={{ delay: 0.15 + navLinks.length * 0.08, duration: 0.5 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.08 + navLinks.length * 0.04, duration: 0.3 }}
               whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(255, 204, 0, 0.3)' }}
               className="flex items-center gap-2.5 border-2 border-gold text-gold font-sans font-bold text-lg px-7 py-3.5 rounded-full mt-4"
             >
