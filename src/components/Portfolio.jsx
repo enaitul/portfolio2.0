@@ -80,7 +80,7 @@ function RankNumber({ rank }) {
       className="pointer-events-none select-none flex-shrink-0"
       style={{
         fontFamily: '"Inter", Arial, sans-serif',
-        fontSize: 'clamp(9rem, 16vw, 15rem)',
+        fontSize: 'clamp(7.5rem, 12vw, 11.5rem)',
         lineHeight: 0.85,
         WebkitTextStroke: '4px rgba(255, 255, 255, 0.88)',
         WebkitTextFillColor: '#0a0a0c',
@@ -114,7 +114,7 @@ function ProjectCard({ project, rank }) {
       <motion.article
         layout
         className="relative z-10 overflow-hidden rounded-2xl border border-white/10 bg-card shadow-2xl shadow-black/50 focus-within:border-gold/50 cursor-pointer flex-shrink-0"
-        style={{ width: 'clamp(260px, 28vw, 380px)', aspectRatio: '2/3' }}
+        style={{ width: 'clamp(220px, 22vw, 320px)', aspectRatio: '2/3' }}
         onMouseEnter={() => {
           if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) setTapped(true)
         }}
@@ -313,7 +313,7 @@ export default function Portfolio() {
           <div
             ref={trackRef}
             onScroll={updateArrowVisibility}
-            className="flex items-end gap-10 sm:gap-14 md:gap-16 overflow-x-auto overflow-y-visible scroll-smooth snap-x snap-mandatory pb-8 pt-4 px-3 sm:px-6 md:px-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex items-end gap-8 sm:gap-10 md:gap-12 overflow-x-auto overflow-y-visible scroll-smooth snap-x snap-mandatory pb-8 pt-4 px-3 sm:px-6 md:px-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
             <AnimatePresence initial={false} mode="popLayout">
               {filteredProjects.map((project, index) => (
