@@ -48,9 +48,38 @@ export default function Navbar() {
   const [showWelcome, setShowWelcome] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40)
+
+      // When reaching near the bottom of the page, activate the last section ('Contact')
+      const isBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80
+      if (isBottom) {
+        setActive('Contact')
+        return
+      }
+
+      // Highlight section currently in viewport (checking from bottom to top)
+      const scrollOffset = 180
+      for (let i = navLinks.length - 1; i >= 0; i--) {
+        const id = navLinks[i].href.replace('#', '')
+        const section = document.getElementById(id)
+        if (section) {
+          const rect = section.getBoundingClientRect()
+          if (rect.top <= scrollOffset) {
+            setActive(navLinks[i].label)
+            break
+          }
+        }
+      }
+    }
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('resize', handleScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleScroll)
+    }
   }, [])
 
   // Lock body scroll when mobile menu is open
