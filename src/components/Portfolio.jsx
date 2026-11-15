@@ -71,23 +71,27 @@ const getTruncatedText = (text, maxLength = 110) => {
 
 // Big hollow outline rank number, sits behind/beside the card
 function RankNumber({ rank }) {
+  // Digit 1 is narrower in Inter, so give it less negative margin so it stays completely visible
+  const marginRight = rank === 1 ? '-0.12em' : '-0.24em'
+
   return (
     <div
       aria-hidden="true"
       className="pointer-events-none select-none flex-shrink-0"
       style={{
         fontFamily: '"Inter", Arial, sans-serif',
-        fontSize: 'clamp(7.5rem, 13vw, 12rem)',
-        lineHeight: 0.95,
-        WebkitTextStroke: '3.5px rgba(255,255,255,0.4)',
-        WebkitTextFillColor: 'transparent',
-        color: 'transparent',
+        fontSize: 'clamp(9rem, 16vw, 15rem)',
+        lineHeight: 0.85,
+        WebkitTextStroke: '4px rgba(255, 255, 255, 0.88)',
+        WebkitTextFillColor: '#0a0a0c',
+        color: '#0a0a0c',
         userSelect: 'none',
         alignSelf: 'flex-end',
-        marginRight: '-0.28em',
+        marginRight,
         paddingBottom: '0.04em',
         zIndex: 0,
         fontWeight: 900,
+        filter: 'drop-shadow(4px 4px 18px rgba(0, 0, 0, 0.95))',
       }}
     >
       {rank}
@@ -110,7 +114,7 @@ function ProjectCard({ project, rank }) {
       <motion.article
         layout
         className="relative z-10 overflow-hidden rounded-2xl border border-white/10 bg-card shadow-2xl shadow-black/50 focus-within:border-gold/50 cursor-pointer flex-shrink-0"
-        style={{ width: 'clamp(200px, 25vw, 300px)', aspectRatio: '2/3' }}
+        style={{ width: 'clamp(260px, 28vw, 380px)', aspectRatio: '2/3' }}
         onMouseEnter={() => {
           if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) setTapped(true)
         }}
@@ -309,7 +313,7 @@ export default function Portfolio() {
           <div
             ref={trackRef}
             onScroll={updateArrowVisibility}
-            className="flex items-end gap-2 sm:gap-3 overflow-x-auto overflow-y-visible scroll-smooth snap-x snap-mandatory pb-8 pt-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex items-end gap-10 sm:gap-14 md:gap-16 overflow-x-auto overflow-y-visible scroll-smooth snap-x snap-mandatory pb-8 pt-4 px-3 sm:px-6 md:px-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
             <AnimatePresence initial={false} mode="popLayout">
               {filteredProjects.map((project, index) => (

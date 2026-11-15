@@ -74,7 +74,7 @@ export default function Hero() {
                   initial={{ y: 80, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                  className="font-display font-bold text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-none tracking-tight"
+                  className="font-sans font-bold text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-none tracking-tight"
                 >
                   <span className="text-white">Md Enaitul</span>
                   <br />

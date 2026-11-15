@@ -77,9 +77,8 @@ const tabs = [
   },
   {
     id: 'education', label: 'Education', content: [
-      { title: '2023 – 2027', desc: 'B.Tech in Computer Science and Engineering, Techno International New Town.' },
-      { title: 'Netaji Subhas Public School (Run by DAV Education Society) | 2021', desc: 'School education.' },
-      { title: 'Achievements', desc: '1st place at Tesseract 2026 and Prabuddha 2026; SIH 2025 Internal Qualifier.' },
+      { title: 'College (2023 – 2027)', desc: 'B.Tech in Computer Science and Engineering, Techno International New Town.' },
+      { title: 'Schooling (2021)', desc: 'Class XII — CBSE (Science), Netaji Subhas Public School (DAV Educational Society).' },
     ],
   },
 ]

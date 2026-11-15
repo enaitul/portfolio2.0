@@ -9,7 +9,7 @@ export default function Footer() {
         <motion.a
           href="#home"
           whileHover={{ scale: 1.05 }}
-          className="font-display font-bold text-lg"
+          className="font-sans font-bold text-lg tracking-tight"
         >
           <span className="text-white">Enait</span>
           <span className="text-gold">.</span>
