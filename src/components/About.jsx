@@ -77,8 +77,9 @@ const tabs = [
   },
   {
     id: 'education', label: 'Education', content: [
-      { title: 'College (2023 – 2027)', desc: 'B.Tech in Computer Science and Engineering, Techno International New Town.' },
-      { title: 'Schooling (2021)', desc: 'Class XII — CBSE (Science), Netaji Subhas Public School (DAV Educational Society).' },
+      { title: '2023 – 2027', desc: 'B.Tech in Computer Science and Engineering, Techno International New Town.' },
+      { title: '2021 – 2023', desc: 'Allen Career Institute.' },
+      { title: '2021', desc: 'Class XII — CBSE (Science), Netaji Subhas Public School (DAV Educational Society).' },
     ],
   },
 ]
